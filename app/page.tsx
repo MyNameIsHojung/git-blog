@@ -32,12 +32,12 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white dark:bg-zinc-950">
       <section className="flex flex-col items-center gap-6 px-12 py-8">
-        <h1 className="text-[40px] font-extrabold text-black tracking-tight font-[family-name:var(--font-outfit)]">
+        <h1 className="text-[40px] font-extrabold text-black dark:text-white tracking-tight font-[family-name:var(--font-outfit)]">
           블로그에 오신 것을 환영합니다
         </h1>
-        <p className="text-base text-zinc-500">
+        <p className="text-base text-zinc-500 dark:text-zinc-400">
           다양한 주제의 글을 읽고 나만의 이야기를 공유하세요
         </p>
         <SearchBar onSearch={handleSearch} />
@@ -46,7 +46,7 @@ export default function Home() {
       <section className="px-12 pb-12">
         {loading ? (
           <div className="flex justify-center py-20">
-            <div className="w-8 h-8 border-2 border-zinc-300 border-t-black rounded-full animate-spin" />
+            <div className="w-8 h-8 border-2 border-zinc-300 dark:border-zinc-600 border-t-black dark:border-t-white rounded-full animate-spin" />
           </div>
         ) : posts.length === 0 ? (
           <div className="text-center py-20 text-zinc-400">

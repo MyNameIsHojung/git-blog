@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
 import { AuthProvider } from "@/context/AuthContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 import Header from "@/components/Header";
 import "./globals.css";
 
@@ -25,12 +26,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <body className={`${outfit.variable} ${inter.variable} font-[family-name:var(--font-inter)] antialiased`}>
-        <AuthProvider>
-          <Header />
-          {children}
-        </AuthProvider>
+    <html lang="ko" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})()`,
+          }}
+        />
+      </head>
+      <body className={`${outfit.variable} ${inter.variable} font-[family-name:var(--font-inter)] antialiased bg-white dark:bg-zinc-950 text-black dark:text-zinc-100`}>
+        <ThemeProvider>
+          <AuthProvider>
+            <Header />
+            {children}
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

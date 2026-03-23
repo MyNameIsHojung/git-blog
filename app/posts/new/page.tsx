@@ -42,14 +42,14 @@ export default function NewPostPage() {
   if (isLoading || !user) return null;
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white dark:bg-zinc-950">
       <div className="max-w-5xl mx-auto px-6 py-8">
         <div className="flex items-center justify-between mb-8">
           <div className="flex gap-2">
             <button
               onClick={() => setShowPreview(false)}
               className={`px-4 py-2 text-sm font-medium rounded-lg ${
-                !showPreview ? "bg-zinc-100 text-black" : "text-zinc-400"
+                !showPreview ? "bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white" : "text-zinc-400"
               }`}
             >
               편집
@@ -57,7 +57,7 @@ export default function NewPostPage() {
             <button
               onClick={() => setShowPreview(true)}
               className={`px-4 py-2 text-sm font-medium rounded-lg ${
-                showPreview ? "bg-zinc-100 text-black" : "text-zinc-400"
+                showPreview ? "bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white" : "text-zinc-400"
               }`}
             >
               미리보기
@@ -66,14 +66,14 @@ export default function NewPostPage() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => router.back()}
-              className="px-5 py-2.5 text-sm font-medium text-zinc-500 border border-zinc-200 rounded-lg hover:bg-zinc-50"
+              className="px-5 py-2.5 text-sm font-medium text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800"
             >
               취소
             </button>
             <button
               onClick={handlePublish}
               disabled={submitting || !title.trim() || !content.trim()}
-              className="flex items-center gap-2 px-6 py-2.5 bg-black text-white text-sm font-semibold rounded-lg hover:bg-zinc-800 disabled:opacity-50"
+              className="flex items-center gap-2 px-6 py-2.5 bg-black dark:bg-white text-white dark:text-black text-sm font-semibold rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 disabled:opacity-50"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
               {submitting ? "발행 중..." : "발행하기"}
@@ -86,11 +86,11 @@ export default function NewPostPage() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="제목을 입력하세요"
-          className="w-full text-[32px] font-extrabold text-black tracking-tight font-[family-name:var(--font-outfit)] placeholder-zinc-300 border-b-2 border-zinc-200 pb-4 mb-6 outline-none focus:border-black transition-colors"
+          className="w-full text-[32px] font-extrabold text-black dark:text-white tracking-tight font-[family-name:var(--font-outfit)] placeholder-zinc-300 dark:placeholder-zinc-600 border-b-2 border-zinc-200 dark:border-zinc-700 pb-4 mb-6 outline-none focus:border-black dark:focus:border-white transition-colors bg-transparent"
         />
 
         {showPreview ? (
-          <div className="min-h-[500px] p-6 border border-zinc-200 rounded-xl bg-zinc-50">
+          <div className="min-h-[500px] p-6 border border-zinc-200 dark:border-zinc-700 rounded-xl bg-zinc-50 dark:bg-zinc-900">
             <MarkdownRenderer content={content} />
           </div>
         ) : (

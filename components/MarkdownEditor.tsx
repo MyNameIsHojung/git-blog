@@ -71,23 +71,23 @@ export default function MarkdownEditor({ value, onChange }: MarkdownEditorProps)
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-1 p-2 bg-zinc-100 rounded-lg">
+      <div className="flex items-center gap-1 p-2 bg-zinc-100 dark:bg-zinc-800 rounded-lg">
         {toolbarButtons.map((btn) => (
           <button
             key={btn.title}
             type="button"
             onClick={btn.action}
             title={btn.title}
-            className="px-2.5 py-2 text-sm font-medium text-zinc-700 hover:bg-white rounded-md transition-colors"
+            className="px-2.5 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-white dark:hover:bg-zinc-700 rounded-md transition-colors"
           >
             {btn.icon}
           </button>
         ))}
-        <div className="w-px h-6 bg-zinc-300 mx-1" />
+        <div className="w-px h-6 bg-zinc-300 dark:bg-zinc-600 mx-1" />
         <button
           type="button"
           onClick={() => fileInputRef.current?.click()}
-          className="flex items-center gap-1.5 px-2.5 py-2 text-sm font-medium text-zinc-700 hover:bg-white border border-zinc-200 bg-white rounded-md"
+          className="flex items-center gap-1.5 px-2.5 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-white dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-600 bg-white dark:bg-zinc-700 rounded-md"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
           이미지
@@ -106,7 +106,7 @@ export default function MarkdownEditor({ value, onChange }: MarkdownEditorProps)
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="마크다운으로 글을 작성하세요..."
-        className="w-full min-h-[500px] px-5 py-4 text-[15px] leading-relaxed text-zinc-800 border border-zinc-200 rounded-xl outline-none focus:border-black resize-y font-mono"
+        className="w-full min-h-[500px] px-5 py-4 text-[15px] leading-relaxed text-zinc-800 dark:text-zinc-200 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-xl outline-none focus:border-black dark:focus:border-white resize-y font-mono placeholder-zinc-400 dark:placeholder-zinc-600"
       />
     </div>
   );

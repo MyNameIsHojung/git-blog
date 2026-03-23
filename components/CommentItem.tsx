@@ -44,33 +44,33 @@ export default function CommentItem({
   return (
     <div>
       <div
-        className="flex gap-3 py-5 border-b border-zinc-100"
+        className="flex gap-3 py-5 border-b border-zinc-100 dark:border-zinc-800"
         style={{ paddingLeft: depth > 0 ? 44 : 0 }}
       >
         <div
           className={`shrink-0 ${depth > 0 ? "w-7 h-7" : "w-8 h-8"} rounded-full flex items-center justify-center ${
-            isPostAuthor ? "bg-zinc-500" : "bg-zinc-700"
+            isPostAuthor ? "bg-zinc-500" : "bg-zinc-700 dark:bg-zinc-400"
           }`}
         >
-          <span className={`text-white font-bold font-[family-name:var(--font-outfit)] ${depth > 0 ? "text-[10px]" : "text-xs"}`}>
+          <span className={`text-white dark:text-black font-bold font-[family-name:var(--font-outfit)] ${depth > 0 ? "text-[10px]" : "text-xs"}`}>
             {getInitial(comment.author_name)}
           </span>
         </div>
         <div className="flex-1 flex flex-col gap-2">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-semibold text-black">{comment.author_name}</span>
+            <span className="text-sm font-semibold text-black dark:text-white">{comment.author_name}</span>
             {isPostAuthor && (
-              <span className="px-2 py-0.5 bg-black text-white text-[10px] font-semibold rounded">
+              <span className="px-2 py-0.5 bg-black dark:bg-white text-white dark:text-black text-[10px] font-semibold rounded">
                 작성자
               </span>
             )}
-            <span className="text-xs text-zinc-400">{formatDate(comment.created_at)}</span>
+            <span className="text-xs text-zinc-400 dark:text-zinc-500">{formatDate(comment.created_at)}</span>
           </div>
-          <p className="text-sm text-zinc-700 leading-relaxed">{comment.content}</p>
+          <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">{comment.content}</p>
           {user && (
             <button
               onClick={() => setShowReply(!showReply)}
-              className="text-[13px] font-medium text-zinc-500 hover:text-black w-fit"
+              className="text-[13px] font-medium text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white w-fit"
             >
               답글
             </button>
@@ -82,19 +82,19 @@ export default function CommentItem({
                 onChange={(e) => setReplyContent(e.target.value)}
                 placeholder="답글을 작성하세요..."
                 rows={2}
-                className="w-full px-3 py-2 text-sm border border-zinc-200 rounded-lg outline-none focus:border-black resize-none"
+                className="w-full px-3 py-2 text-sm text-black dark:text-white bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-lg outline-none focus:border-black dark:focus:border-white resize-none"
               />
               <div className="flex justify-end gap-2">
                 <button
                   onClick={() => setShowReply(false)}
-                  className="px-3 py-1.5 text-xs text-zinc-500 rounded"
+                  className="px-3 py-1.5 text-xs text-zinc-500 dark:text-zinc-400 rounded"
                 >
                   취소
                 </button>
                 <button
                   onClick={handleReply}
                   disabled={loading || !replyContent.trim()}
-                  className="px-3 py-1.5 bg-black text-white text-xs font-medium rounded disabled:opacity-50"
+                  className="px-3 py-1.5 bg-black dark:bg-white text-white dark:text-black text-xs font-medium rounded disabled:opacity-50"
                 >
                   {loading ? "작성 중..." : "답글 작성"}
                 </button>

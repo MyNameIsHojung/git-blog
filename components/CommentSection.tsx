@@ -58,7 +58,7 @@ export default function CommentSection({ postId, postAuthorId }: CommentSectionP
 
   return (
     <div className="flex flex-col gap-6">
-      <h3 className="text-xl font-extrabold text-black font-[family-name:var(--font-outfit)]">
+      <h3 className="text-xl font-extrabold text-black dark:text-white font-[family-name:var(--font-outfit)]">
         댓글 {totalCount}개
       </h3>
 
@@ -69,20 +69,20 @@ export default function CommentSection({ postId, postAuthorId }: CommentSectionP
             onChange={(e) => setContent(e.target.value)}
             placeholder="댓글을 작성하세요..."
             rows={3}
-            className="w-full px-4 py-3.5 text-sm border border-zinc-200 rounded-lg outline-none focus:border-black resize-none"
+            className="w-full px-4 py-3.5 text-sm text-black dark:text-white bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-lg outline-none focus:border-black dark:focus:border-white resize-none"
           />
           <div className="flex justify-end">
             <button
               onClick={handleSubmit}
               disabled={loading || !content.trim()}
-              className="px-5 py-2.5 bg-black text-white text-[13px] font-medium rounded-lg disabled:opacity-50"
+              className="px-5 py-2.5 bg-black dark:bg-white text-white dark:text-black text-[13px] font-medium rounded-lg disabled:opacity-50"
             >
               {loading ? "작성 중..." : "댓글 작성"}
             </button>
           </div>
         </div>
       ) : (
-        <p className="text-sm text-zinc-400 py-4 text-center border border-zinc-200 rounded-lg">
+        <p className="text-sm text-zinc-400 py-4 text-center border border-zinc-200 dark:border-zinc-700 rounded-lg">
           댓글을 작성하려면 로그인이 필요합니다.
         </p>
       )}
