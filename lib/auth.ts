@@ -117,10 +117,14 @@ export async function signup(
     .single();
 
   if (error) {
+    console.error("Signup error:", error);
     if (error.code === "23505") {
       return { error: "이미 사용 중인 이메일 또는 사용자명입니다." };
     }
-    return { error: "회원가입 중 오류가 발생했습니다." };
+    if (error.code === "42501") {
+      return { error: "권한이 없습니다. Supabase RLS 정책을 확인하세요." };
+    }
+    return { error: `회원가입 중 오류가 발생했습니다: ${error.message}` };
   }
 
   const sessionUser: User = {
