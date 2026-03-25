@@ -31,13 +31,13 @@ export default function ThemeToggle() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="p-2 rounded-lg text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+        className="p-2 rounded-lg text-brown dark:text-warm-400 hover:bg-warm-100 dark:hover:bg-dark-800 transition-colors"
         title={`테마: ${current.label}`}
       >
         <CurrentIcon />
       </button>
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-36 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-lg shadow-lg overflow-hidden z-50">
+        <div className="absolute right-0 top-full mt-2 w-36 bg-white dark:bg-dark-900 border border-warm-200 dark:border-dark-700 rounded-lg shadow-lg overflow-hidden z-50">
           {options.map((opt) => {
             const Icon = opt.icon;
             return (
@@ -49,8 +49,8 @@ export default function ThemeToggle() {
                 }}
                 className={`flex items-center gap-2.5 w-full px-3.5 py-2.5 text-sm transition-colors ${
                   theme === opt.value
-                    ? "bg-zinc-100 dark:bg-zinc-800 text-black dark:text-white font-medium"
-                    : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800/50"
+                    ? "bg-warm-100 dark:bg-dark-800 text-plum dark:text-teal font-medium"
+                    : "text-brown dark:text-warm-400 hover:bg-warm-50 dark:hover:bg-dark-800/50"
                 }`}
               >
                 <Icon />

@@ -45,12 +45,12 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
     }
   };
 
-  const inputClass = "w-full px-4 py-3.5 text-sm text-black dark:text-white bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg outline-none focus:border-black dark:focus:border-white transition-colors";
+  const inputClass = "w-full px-4 py-3.5 text-sm text-plum dark:text-warm-200 bg-white dark:bg-dark-800 border border-warm-200 dark:border-dark-700 rounded-lg outline-none focus:border-plum dark:focus:border-teal transition-colors";
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
-        <label className="text-sm font-medium text-black dark:text-white">이메일</label>
+        <label className="text-sm font-medium text-plum dark:text-warm-200">이메일</label>
         <input
           type="email"
           placeholder="name@example.com"
@@ -61,7 +61,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
         />
       </div>
       <div className="flex flex-col gap-2">
-        <label className="text-sm font-medium text-black dark:text-white">사용자명</label>
+        <label className="text-sm font-medium text-plum dark:text-warm-200">사용자명</label>
         <input
           type="text"
           placeholder="사용자명을 입력하세요"
@@ -72,7 +72,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
         />
       </div>
       <div className="flex flex-col gap-2">
-        <label className="text-sm font-medium text-black dark:text-white">비밀번호</label>
+        <label className="text-sm font-medium text-plum dark:text-warm-200">비밀번호</label>
         <input
           type="password"
           placeholder="최소 6자 이상"
@@ -83,7 +83,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
         />
       </div>
       <div className="flex flex-col gap-2">
-        <label className="text-sm font-medium text-black dark:text-white">비밀번호 확인</label>
+        <label className="text-sm font-medium text-plum dark:text-warm-200">비밀번호 확인</label>
         <input
           type="password"
           placeholder="비밀번호를 다시 입력하세요"
@@ -104,7 +104,7 @@ export default function SignupForm({ onSuccess }: SignupFormProps) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full py-3.5 bg-black dark:bg-white text-white dark:text-black text-[15px] font-semibold rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 disabled:opacity-50 transition-colors"
+        className="w-full py-3.5 bg-plum dark:bg-teal text-white dark:text-dark-950 text-[15px] font-semibold rounded-lg hover:bg-plum-light dark:hover:bg-teal-light disabled:opacity-50 transition-colors"
       >
         {loading ? "가입 중..." : "회원가입"}
       </button>

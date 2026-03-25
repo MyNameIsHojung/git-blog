@@ -36,7 +36,7 @@ function PostDetailContent() {
   if (loading) {
     return (
       <div className="flex justify-center py-20">
-        <div className="w-8 h-8 border-2 border-zinc-300 dark:border-zinc-600 border-t-black dark:border-t-white rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-warm-300 dark:border-dark-600 border-t-plum dark:border-t-teal rounded-full animate-spin" />
       </div>
     );
   }
@@ -46,10 +46,10 @@ function PostDetailContent() {
   const isAuthor = user?.id === post.author_id;
 
   return (
-    <main className="min-h-screen bg-white dark:bg-zinc-950">
+    <main className="min-h-screen bg-warm-50 dark:bg-dark-950">
       <article className="max-w-3xl mx-auto px-6 py-12">
         <div className="flex items-start justify-between gap-4 mb-4">
-          <h1 className="text-4xl font-extrabold text-black dark:text-white tracking-tight leading-tight font-[family-name:var(--font-outfit)]">
+          <h1 className="text-4xl font-extrabold text-plum dark:text-warm-100 tracking-tight leading-tight font-[family-name:var(--font-outfit)]">
             {post.title}
           </h1>
           <div className="flex items-center gap-2 shrink-0">
@@ -59,7 +59,7 @@ function PostDetailContent() {
             {isAuthor && (
               <Link
                 href={`/posts/edit?id=${post.id}`}
-                className="px-4 py-2 text-sm font-medium text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 rounded-lg hover:bg-zinc-50 dark:hover:bg-zinc-800"
+                className="px-4 py-2 text-sm font-medium text-brown dark:text-warm-400 border border-warm-200 dark:border-dark-700 rounded-lg hover:bg-warm-100 dark:hover:bg-dark-800 transition-colors"
               >
                 수정
               </Link>
@@ -68,22 +68,22 @@ function PostDetailContent() {
         </div>
 
         <div className="flex items-center gap-3 mb-8">
-          <div className="w-9 h-9 bg-black dark:bg-white rounded-full flex items-center justify-center">
-            <span className="text-white dark:text-black text-sm font-bold font-[family-name:var(--font-outfit)]">
+          <div className="w-9 h-9 bg-sage dark:bg-teal rounded-full flex items-center justify-center">
+            <span className="text-white dark:text-dark-950 text-sm font-bold font-[family-name:var(--font-outfit)]">
               {getInitial(post.author_name)}
             </span>
           </div>
           <div>
-            <p className="text-[15px] font-semibold text-black dark:text-white">{post.author_name}</p>
-            <p className="text-[13px] text-zinc-400 dark:text-zinc-500">{formatDateLong(post.created_at)}</p>
+            <p className="text-[15px] font-semibold text-plum dark:text-warm-200">{post.author_name}</p>
+            <p className="text-[13px] text-warm-400 dark:text-warm-500">{formatDateLong(post.created_at)}</p>
           </div>
         </div>
 
-        <hr className="border-zinc-200 dark:border-zinc-800 mb-8" />
+        <hr className="border-warm-200 dark:border-dark-700 mb-8" />
 
         <MarkdownRenderer content={post.content} />
 
-        <hr className="border-zinc-200 dark:border-zinc-800 my-8" />
+        <hr className="border-warm-200 dark:border-dark-700 my-8" />
 
         <CommentSection postId={post.id} postAuthorId={post.author_id} />
       </article>
@@ -96,7 +96,7 @@ export default function PostDetailPage() {
     <Suspense
       fallback={
         <div className="flex justify-center py-20">
-          <div className="w-8 h-8 border-2 border-zinc-300 dark:border-zinc-600 border-t-black dark:border-t-white rounded-full animate-spin" />
+          <div className="w-8 h-8 border-2 border-warm-300 dark:border-dark-600 border-t-plum dark:border-t-teal rounded-full animate-spin" />
         </div>
       }
     >

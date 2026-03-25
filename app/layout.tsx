@@ -34,7 +34,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${outfit.variable} ${inter.variable} font-[family-name:var(--font-inter)] antialiased bg-white dark:bg-zinc-950 text-black dark:text-zinc-100`}>
+      <body className={`${outfit.variable} ${inter.variable} font-[family-name:var(--font-inter)] antialiased bg-warm-50 dark:bg-dark-950 text-plum dark:text-warm-200`}>
         <ThemeProvider>
           <AuthProvider>
             <Header />
